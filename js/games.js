@@ -1,4 +1,4 @@
-$.getJSON("/games.json", function (data) {
+$.getJSON("games.json", function (data) {
 	if (document.readyState === "complete") {
 		loadGames(data);
 	} else {
@@ -150,7 +150,7 @@ function loadGames(data) {
 }
 
 function redirectGame(dir) {
-	window.location.href = window.location.origin + "/" + dir + "/index.html";
+	window.location.href = new URL(dir + "/index.html", document.baseURI).href;
 }
 function dynamicSort(property) {
 	var sortOrder = 1;
